@@ -121,3 +121,13 @@ uv run python scripts/setup_periodic_tasks.py
 8. API is available at `http://localhost:8000/api/v1/`
 9. Swagger UI is available at `http://localhost:8000/api/schema/swagger-ui/`
 
+## Testing
+> library_api.settings_test - necessary to avoid 429 status during frequent tests
+
+```bash
+uv run python manage.py test apps --settings=library_api.settings_test
+```
+### container
+```bash
+docker compose exec web python manage.py test apps --settings=library_api.settings_test
+```
