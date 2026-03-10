@@ -23,9 +23,17 @@ def get_anviversary_dates() -> list[date]:
     return anniversary_dates
 
 
+def get_norify_emails() -> list[str]:
+    return list(
+        get_user_model().objects
+        .filter(email_verified=True, is_active=True)
+        .values_list('email', flat=True)
+    )
+
+
 @shared_task
 def notify_new_books():
-    emails = get_user_model().objects.filter(is_active=True).values_list('email', flat=True)
+    emails = get_norify_emails()
     if not emails:
         return
 
@@ -57,7 +65,7 @@ def notify_new_books():
 
 @shared_task
 def notify_users_about_anniversary_books():
-    emails = get_user_model().objects.filter(is_active=True).values_list('email', flat=True)
+    emails = get_norify_emails()
     if not emails:
         return
 
