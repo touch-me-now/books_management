@@ -24,7 +24,7 @@ class BookFilter(django_filters.FilterSet):
             ("authors__last_name", "author"),
         )
     )
-    favorite = django_filters.BooleanFilter(method="filter_favorites")
+    favorites = django_filters.BooleanFilter(method="filter_favorites")
 
     def filter_search(self, queryset, name, value):
         return queryset.filter(
@@ -38,4 +38,4 @@ class BookFilter(django_filters.FilterSet):
 
     class Meta:
         model = Book
-        fields = ("authors", "genres", "publication_date", "search", "ordering", "favorite")
+        fields = ("authors", "genres", "publication_date", "search", "ordering", "favorites")
