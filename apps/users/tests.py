@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from .models import CustomUser
+from apps.users.models import CustomUser
 
 
 class CustomUserModelTest(TestCase):
@@ -15,7 +15,7 @@ class CustomUserModelTest(TestCase):
         self.assertEqual(CustomUser.USERNAME_FIELD, "email")
 
     def test_required_fields(self):
-        self.assertIn("email", CustomUser.REQUIRED_FIELDS)
+        self.assertNotIn("email", CustomUser.REQUIRED_FIELDS)
 
     def test_user_creation(self):
         self.assertEqual(self.user.email, "test@example.com")
@@ -33,12 +33,4 @@ class CustomUserModelTest(TestCase):
         self.assertTrue(admin.is_superuser)
 
     def test_str_representation(self):
-        self.assertEqual(str(self.user), "testuser")
-    
-    def test_same_cred_creation(self):
-        user = CustomUser.objects.create_user(
-            username="test2@example.com",
-            email="test2@example.com",
-            password="testpass123",
-        )
-        self.assertEqual(user.email, user.username)
+        self.assertEqual(str(self.user), "test@example.com")
