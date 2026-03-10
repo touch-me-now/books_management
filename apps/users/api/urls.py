@@ -6,7 +6,7 @@ from rest_framework_simplejwt.views import (
     token_blacklist
 )
 
-from .views import RegiterAPIView
+from .views import RegiterAPIView, VerifyEmailAPIView
 
 token_urlpatterns = [
     path('', token_obtain_pair, name='token_obtain_pair'),
@@ -18,4 +18,5 @@ token_urlpatterns = [
 urlpatterns = [
     path('token/', include(token_urlpatterns)),
     path('register/', RegiterAPIView.as_view(), name="register"),
+    path('verify-email/', VerifyEmailAPIView.as_view(), name="verify-email"),
 ]
