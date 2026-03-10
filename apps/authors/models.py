@@ -20,7 +20,7 @@ class Author(models.Model):
         verbose_name_plural = _("Authors")
         constraints = [
             models.CheckConstraint(
-                condition=models.Q(date_of_death__isnull=False) & models.Q(date_of_birth__lt=models.F('date_of_death')),
+                condition=models.Q(date_of_death__isnull=True) | models.Q(date_of_birth__lt=models.F('date_of_death')),
                 name='date_of_birth_before_date_of_death'
             ),
             models.UniqueConstraint(
