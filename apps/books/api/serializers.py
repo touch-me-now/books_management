@@ -38,7 +38,8 @@ class BookSerializer(serializers.ModelSerializer):
         )
 
     def validate(self, attrs):
-        genre_name = attrs.pop("genre", None)
-        if genre_name:
+        genre_data = attrs.pop("genre", None)
+        if genre_data:
+            genre_name = genre_data.get("name")
             attrs["genre"], _ = Genre.objects.get_or_create(name=genre_name)
         return attrs
