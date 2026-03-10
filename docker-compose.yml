@@ -3,6 +3,8 @@ services:
     image: redis:7-alpine
     ports:
       - "${REDIS_PORT:-6379}:6379"
+    networks:
+      - redis_network
 
   web:
     build: .
@@ -15,6 +17,8 @@ services:
       - redis
     env_file:
       - .env
+    networks:
+      - redis_network
 
   celery:
     build: .
@@ -23,6 +27,8 @@ services:
       - redis
     env_file:
       - .env
+    networks:
+      - redis_network
   
   celery-beat:
     build: .
@@ -31,3 +37,9 @@ services:
       - redis
     env_file:
       - .env
+    networks:
+      - redis_network
+  
+networks:
+  redis_network:
+    driver: bridge

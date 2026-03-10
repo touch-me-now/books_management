@@ -1,21 +1,9 @@
-FROM python:3.13-slim
+FROM python:3.14-slim
 
 WORKDIR /app
 
-# install uv
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
+COPY pyproject.toml ./
 
-# copy dependency files
-COPY pyproject.toml uv.lock ./
+RUN pip install .
 
-# install dependencies
-RUN uv sync --frozen --no-dev
-
-# copy project
-COPY . .
-
-ENV PATH="/app/.venv/bin:$PATH"
-
-EXPOSE 8000
-
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+COPY . /app
