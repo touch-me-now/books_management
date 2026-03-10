@@ -1,0 +1,26 @@
+# virtual environment
+.venv
+
+# git
+.git
+.gitignore
+
+# python cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# local db
+db.sqlite3
+
+# env files
+.env
+
+# docs
+docs/
+
+# os
+.DS_Store
+.vscode

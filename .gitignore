@@ -8,3 +8,6 @@ db.sqlite3
 
 **/migrations/**.py
 !**/migrations/__init__.py
+
+.DS_Store
+.vscode
