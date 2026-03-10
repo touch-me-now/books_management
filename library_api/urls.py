@@ -28,4 +28,5 @@ urlpatterns = [
 
     path('api/v1/', include('apps.users.api.urls')),
     path('api/v1/', include('apps.authors.api.urls')),
+    path('api/v1/', include('apps.books.api.urls')),
 ]

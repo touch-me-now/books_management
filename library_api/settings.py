@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # my apps
     'apps.users',
     'apps.authors',
+    'apps.books',
 ]
 
 MIDDLEWARE = [
@@ -147,6 +148,7 @@ SIMPLE_JWT = {
 }
 
 AUTH_USER_MODEL = "users.CustomUser"
+AUTHOR_MODEL = "authors.Author"
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Library API',
