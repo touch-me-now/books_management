@@ -1,0 +1,8 @@
+📚 {{ title }}
+
+{{ subtitle }}
+
+{% for title, year in books %}* {{ title }} ({{ year }})
+{% endfor %}
+
+Enjoy reading!

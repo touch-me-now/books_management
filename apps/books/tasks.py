@@ -4,6 +4,7 @@ from celery import shared_task
 from django.utils import timezone
 from django.contrib.auth import get_user_model
 from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 from .models import Book
 
@@ -29,18 +30,27 @@ def notify_new_books():
         return
 
     day_ago = timezone.now() - timezone.timedelta(days=1)
-    books = Book.objects.filter(created_at__gte=day_ago).values_list("title", flat=True)[:10]
+    books = list(
+        Book.objects
+        .filter(created_at__gte=day_ago)
+        .values_list("title", "publication_date__year")
+        .order_by("publication_date")[:20]
+    )
     if books:
-        book_list = "\n".join(f"* {book}" for book in books)
-
+        context = {
+            "title": "Today publicated books",
+            "subtitle": "The following books have a publication today:",
+            "books": books,
+        }
         send_mail(
-            'New Books Added',
-            f'New books have been added in the last day: {book_list}',
-            recipient_list=emails,
-            from_email=None,  # Use default from email
+            subject="📚 Today publicated books",
+            message=render_to_string("emails/mail.txt", context),
+            html_message=render_to_string("emails/mail.html", context),
+            recipient_list=list(emails),
+            from_email=None,
             fail_silently=False,
         )
-        print(f"New books added in the last day: {book_list}")
+
 
 
 @shared_task
@@ -50,14 +60,24 @@ def notify_users_about_anniversary_books():
         return
 
     anniversary_dates = get_anviversary_dates()
-    books = Book.objects.filter(publication_date__in=anniversary_dates).values_list("title", flat=True)
+    books = list(
+        Book.objects
+        .filter(publication_date__in=anniversary_dates)
+        .values_list("title", "publication_date__year")
+        .order_by("publication_date")[:20]
+    )
+
     if books:
-        book_list = "\n".join(f"* {book}" for book in books)
+        context = {
+            "title": "Book Publication Anniversaries Today",
+            "subtitle": "The following books have a publication anniversary today:",
+            "books": books,
+        }
         send_mail(
-            'Book Publication Anniversary',
-            f'Today is the publication anniversary of the following books: {book_list}',
-            recipient_list=emails,
-            from_email=None,  # Use default from email
+            subject="📚 Book Publication Anniversaries Today",
+            message=render_to_string("emails/mail.txt", context),
+            html_message=render_to_string("emails/mail.html", context),
+            recipient_list=list(emails),
+            from_email=None,
             fail_silently=False,
         )
-        print(f"Books with publication anniversary today: {book_list}")
