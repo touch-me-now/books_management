@@ -9,11 +9,10 @@ USER_SETTINGS = getattr(settings, "USERS_API_SETTINGS", None)
 DEFAULTS = {
     # to provide substitution outside the application, without direct intervention
     "REGISTRATION_SERIALIZER": "apps.users.api.serializers.RegistrationSerializer",
-    "CHECK_PASSWORD_SERIALIZER": "apps.users.api.serializers.CheckPasswordSerializer",
+    "VERIFY_SERIALIZER": "apps.users.api.serializers.VerifyEmailSerializer"
 }
 IMPORT_STRINGS = (
     "REGISTRATION_SERIALIZER",
-    "CHECK_PASSWORD_SERIALIZER",
 )
 
 api_settings = APISettings(USER_SETTINGS, DEFAULTS, IMPORT_STRINGS)
