@@ -21,8 +21,8 @@ delete them.
 
 1. Clone the repository
 ```bash
-   git clone <repo-url>
-   cd <repo-name>
+   git clone https://github.com/touch-me-now/books_management.git
+   cd books_management
 ```
 
 2. Install dependencies
@@ -84,8 +84,8 @@ delete them.
 
 1. Clone the repository
 ```bash
-   git clone <repo-url>
-   cd <repo-name>
+   git clone https://github.com/touch-me-now/books_management.git
+   cd books_management
 ```
 
 2. Create and fill `.env` file
