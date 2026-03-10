@@ -16,6 +16,7 @@ class Author(models.Model):
     )
 
     class Meta:
+        ordering = ("id",)
         verbose_name = _("Author")
         verbose_name_plural = _("Authors")
         constraints = [

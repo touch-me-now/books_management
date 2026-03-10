@@ -12,6 +12,7 @@ class Genre(models.Model):
     name = models.CharField(_("name"), max_length=50, unique=True)
 
     class Meta:
+        ordering = ("id",)
         verbose_name = _("Genre")
         verbose_name_plural = _("Genres")
 
@@ -44,6 +45,7 @@ class Book(models.Model):
     created_at = models.DateTimeField(_("created time"), auto_now_add=True)
 
     class Meta:
+        ordering = ("-publication_date",)
         verbose_name = _("Book")
         verbose_name_plural = _("Books")
 
