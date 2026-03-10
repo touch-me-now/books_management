@@ -47,7 +47,7 @@ delete them.
 
 6. Create Periodic tasks
 ```bash
-uv run python scripts/setup_periodic_tasks.py
+   uv run python manage.py shell -c "from scripts.setup_periodic_tasks import setup_periodic_tasks; setup_periodic_tasks()"
 ```
 
 7. Load fixtures (optional)
@@ -115,7 +115,7 @@ uv run python scripts/setup_periodic_tasks.py
 
 7. Create Periodic tasks
 ```bash
-   docker compose exec web python scripts/setup_periodic_tasks.py
+   docker compose exec web uv run python manage.py shell -c "from scripts.setup_periodic_tasks import setup_periodic_tasks; setup_periodic_tasks()"
 ```
 
 8. API is available at `http://localhost:8000/api/v1/`
