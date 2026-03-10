@@ -33,17 +33,19 @@ def notify_new_books():
     books = list(
         Book.objects
         .filter(created_at__gte=day_ago)
+        # filter by publication date
+        # .filter(publication_date__gte=day_ago)
         .values_list("title", "publication_date__year")
-        .order_by("publication_date")[:20]
+        .order_by("created_at__gte")[:20]
     )
     if books:
         context = {
-            "title": "Today publicated books",
-            "subtitle": "The following books have a publication today:",
+            "title": "New publicated books",
+            "subtitle": "The following new books have been published in last day:",
             "books": books,
         }
         send_mail(
-            subject="📚 Today publicated books",
+            subject="📚 New publicated books",
             message=render_to_string("emails/mail.txt", context),
             html_message=render_to_string("emails/mail.html", context),
             recipient_list=list(emails),
