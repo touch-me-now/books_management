@@ -39,8 +39,9 @@ class Book(models.Model):
     # It's worth ensuring that the author's deletion is checked at the signal level
     #  to prevent deletion if this is the only author of the book
     authors = models.ManyToManyField(settings.AUTHOR_MODEL, verbose_name=_("authors"), related_name="books")
-    publication_date = models.DateTimeField(_("publication date"), db_index=True)
+    publication_date = models.DateField(_("publication date"), db_index=True)
     genre = models.ForeignKey(Genre, on_delete=models.PROTECT, verbose_name=_("genre"))
+    created_at = models.DateTimeField(_("created time"), auto_now_add=True)
 
     class Meta:
         verbose_name = _("Book")
