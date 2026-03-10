@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'django_filters',
     # my apps
+    'apps.users',
 ]
 
 MIDDLEWARE = [
@@ -143,6 +144,8 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60 * 5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
+
+AUTH_USER_MODEL = "users.CustomUser"
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Library API',
