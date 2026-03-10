@@ -1,0 +1,37 @@
+[
+  {
+    "model": "books.genre",
+    "pk": 1,
+    "fields": {
+      "name": "Fiction"
+    }
+  },
+  {
+    "model": "books.genre",
+    "pk": 2,
+    "fields": {
+      "name": "Science Fiction"
+    }
+  },
+  {
+    "model": "books.genre",
+    "pk": 3,
+    "fields": {
+      "name": "Classic Literature"
+    }
+  },
+  {
+    "model": "books.genre",
+    "pk": 4,
+    "fields": {
+      "name": "Dystopian"
+    }
+  },
+  {
+    "model": "books.genre",
+    "pk": 5,
+    "fields": {
+      "name": "Magical Realism"
+    }
+  }
+]

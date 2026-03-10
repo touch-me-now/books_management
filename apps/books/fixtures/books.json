@@ -1,0 +1,74 @@
+[
+  {
+    "model": "books.book",
+    "pk": 1,
+    "fields": {
+      "title": "War and Peace",
+      "summary": "A novel that chronicles the history of the French invasion of Russia and its impact on Tsarist society.",
+      "isbn": "9780140444179",
+      "authors": [1],
+      "publication_date": "1869-01-01T00:00:00Z",
+      "genre": 3
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 2,
+    "fields": {
+      "title": "Crime and Punishment",
+      "summary": "A novel about the mental anguish and moral dilemmas of a poor student who plans and commits a murder.",
+      "isbn": "9780140449136",
+      "authors": [2],
+      "publication_date": "1866-01-01T00:00:00Z",
+      "genre": 3
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 3,
+    "fields": {
+      "title": "1984",
+      "summary": "A dystopian novel set in a totalitarian society ruled by Big Brother, exploring themes of surveillance and oppression.",
+      "isbn": "9780451524935",
+      "authors": [3],
+      "publication_date": "1949-06-08T00:00:00Z",
+      "genre": 4
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 4,
+    "fields": {
+      "title": "One Hundred Years of Solitude",
+      "summary": "A landmark of magical realism that tells the multi-generational story of the Buendia family.",
+      "isbn": "9780060883287",
+      "authors": [4],
+      "publication_date": "1967-05-30T00:00:00Z",
+      "genre": 5
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 5,
+    "fields": {
+      "title": "Norwegian Wood",
+      "summary": "A nostalgic story of loss and sexuality set in Tokyo during the late 1960s.",
+      "isbn": "9780375704024",
+      "authors": [5],
+      "publication_date": "1987-09-04T00:00:00Z",
+      "genre": 1
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 6,
+    "fields": {
+      "title": "The Brothers Karamazov",
+      "summary": "A philosophical novel exploring faith, doubt, and morality through the story of the Karamazov family.",
+      "isbn": "9780374528379",
+      "authors": [2],
+      "publication_date": "1880-01-01T00:00:00Z",
+      "genre": 3
+    }
+  }
+]

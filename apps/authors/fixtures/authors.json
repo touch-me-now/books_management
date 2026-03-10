@@ -1,0 +1,57 @@
+[
+  {
+    "model": "authors.author",
+    "pk": 1,
+    "fields": {
+      "first_name": "Leo",
+      "last_name": "Tolstoy",
+      "biography": "Leo Tolstoy was a Russian novelist regarded as one of the greatest authors of all time.",
+      "date_of_birth": "1828-09-09",
+      "date_of_death": "1910-11-20"
+    }
+  },
+  {
+    "model": "authors.author",
+    "pk": 2,
+    "fields": {
+      "first_name": "Fyodor",
+      "last_name": "Dostoevsky",
+      "biography": "Fyodor Dostoevsky was a Russian novelist whose works explore human psychology in the troubled political, social, and spiritual atmosphere of 19th-century Russia.",
+      "date_of_birth": "1821-11-11",
+      "date_of_death": "1881-02-09"
+    }
+  },
+  {
+    "model": "authors.author",
+    "pk": 3,
+    "fields": {
+      "first_name": "George",
+      "last_name": "Orwell",
+      "biography": "George Orwell was an English novelist and essayist, journalist and critic, known for his clear writing and his opposition to totalitarianism.",
+      "date_of_birth": "1903-06-25",
+      "date_of_death": "1950-01-21"
+    }
+  },
+  {
+    "model": "authors.author",
+    "pk": 4,
+    "fields": {
+      "first_name": "Gabriel",
+      "last_name": "Marquez",
+      "biography": "Gabriel Garcia Marquez was a Colombian novelist and Nobel Prize winner, considered one of the most significant authors of the 20th century.",
+      "date_of_birth": "1927-03-06",
+      "date_of_death": "2014-04-17"
+    }
+  },
+  {
+    "model": "authors.author",
+    "pk": 5,
+    "fields": {
+      "first_name": "Haruki",
+      "last_name": "Murakami",
+      "biography": "Haruki Murakami is a Japanese novelist whose work has been translated into 50 languages and sold millions of copies internationally.",
+      "date_of_birth": "1949-01-12",
+      "date_of_death": null
+    }
+  }
+]
